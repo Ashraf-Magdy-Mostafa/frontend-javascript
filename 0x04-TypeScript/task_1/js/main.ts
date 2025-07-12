@@ -44,3 +44,45 @@ interface printTeacherFunction {
 //     return `${firstName[0]}.${lastName}`
 // }
 const printTeacher: printTeacherFunction = (firstName, lastName) => `${firstName[0]}.${lastName}`;
+
+// class StudentClass {
+//     firstName: string;
+//     lastName: string;
+//     constructor(firstName: string, lastName: string) {
+//         this.firstName = firstName;
+//         this.lastName = lastName;
+
+//     }
+//     workOnHomework(): string {
+//         return 'Currently working'
+//     }
+//     displayName(): string {
+//         return this.firstName;
+//     }
+// }
+
+// class student constructor
+interface StudentConstructor {
+    new(firstName: string, lastName: string): StudentInterface;
+}
+// class student interface
+interface StudentInterface {
+    workOnHomework(): string
+    displayName(): string
+}
+// class student
+class StudentClass implements StudentInterface {
+    private firstName: string;
+    private lastName: string;
+    constructor(firstName: string, lastName: string) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    workOnHomework(): string {
+        return 'Currently working'
+    }
+    displayName(): string {
+        return this.firstName;
+    }
+
+}
