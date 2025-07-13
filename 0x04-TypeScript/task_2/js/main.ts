@@ -25,4 +25,14 @@ const createEmployee = (salary: number | string): Teacher | Director => {
     } else {
         return new Director()
     }
-} 
+}
+// type guard to check if the employee is a Director
+function isDirector(employee: Director | Teacher): employee is Director {
+    return (employee as Director).workDirectorTasks !== undefined;
+}
+
+// function to execute work based on type of employee
+function executeWork(employee: Director | Teacher): string {
+    if (isDirector(employee)) return employee.workDirectorTasks();
+    return (employee as Teacher).workTeacherTasks();
+}
